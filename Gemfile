@@ -46,6 +46,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'guard-spork'
   gem 'pry-coolline'
   gem 'capybara'
 end
