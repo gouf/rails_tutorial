@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+
+gem 'bootstrap-sass'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -47,6 +50,8 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'spork', github: 'sporkrb/spork', tag: '1.0.0rc0'
+  gem 'rspec'
   gem 'pry-coolline'
   gem 'capybara'
 end
