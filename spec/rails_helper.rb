@@ -2,6 +2,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
+require 'support/utilities.rb'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
@@ -51,4 +52,5 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include Capybara::DSL
+  config.include Rails.application.routes.url_helpers
 end

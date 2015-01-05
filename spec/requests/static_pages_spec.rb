@@ -1,39 +1,39 @@
 require 'rails_helper'
 
-describe "StaticPages", :type => :feture do
-  describe 'Home page' do
-    it "should have the content 'Sample App'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Sample App')
-    end
+describe 'StaticPages', type: :feture do
+  subject { page }
 
-    it "should have the title 'Home'" do
-      visit '/static_pages/home'
-      expect(page).to have_title('Ruby on Rails Tutorial Sample App | Home')
-    end
+  describe 'Home page' do
+    before { visit root_path }
+
+    it { have_content('Sample App') }
+
+    it { have_title(full_title) }
+
+    it { have_not_title('| Home') }
   end
 
   describe 'Help page' do
-    it "should have the content 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Help')
-    end
+    before { visit help_path }
 
-    it "should have the title 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_title('Ruby on Rails Tutorial Sample App | Help')
-    end
+    it { have_content('Help') }
+
+    it { have_title(full_title('Help')) }
   end
 
   describe 'About page' do
-    it "should have the content 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('About Us')
-    end
+    before { visit about_path }
 
-    it "should have the title 'About Us'" do
-      visit '/static_pages/about'
-      expect(page).to have_title('Ruby on Rails Tutorial Sample App | About Us')
-    end
+    it { have_content('About Us') }
+
+    it { have_title(full_title('About Us')) }
+  end
+
+  describe 'Contact page' do
+    before { visit contact_path }
+
+    it { have_content('Contact') }
+
+    it { have_title(full_title('Contact')) }
   end
 end
