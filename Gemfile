@@ -52,6 +52,8 @@ group :development, :test do
   gem 'guard-spork'
   gem 'spork', github: 'sporkrb/spork', tag: '1.0.0rc0'
   gem 'rspec'
+  gem 'pry-rails'
   gem 'pry-coolline'
   gem 'capybara'
+  gem 'rb-readline'
 end
