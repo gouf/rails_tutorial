@@ -56,4 +56,5 @@ group :development, :test do
   gem 'pry-coolline'
   gem 'capybara'
   gem 'rb-readline'
+  gem 'fuubar'
 end
