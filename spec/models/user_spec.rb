@@ -16,6 +16,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to respond_to(:password) }
   it { is_expected.to respond_to(:password_confirmation) }
   it { is_expected.to respond_to(:authenticate) }
+  it { is_expected.to respond_to(:remember_token) }
 
   it { is_expected.to be_valid }
 
