@@ -58,3 +58,6 @@ group :development, :test do
   gem 'rb-readline'
   gem 'fuubar'
 end
+
+group :test do
+end
