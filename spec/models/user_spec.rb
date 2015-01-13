@@ -70,4 +70,40 @@ RSpec.describe User, type: :model do
 
     it { is_expected.to_not be_valid }
   end
+
+  describe 'when password is not present' do
+    before do
+      @user = User.new(
+        name: 'Example User', email: 'user@exmpale.com',
+        password: '', password_confirmation: ''
+      )
+    end
+    it { is_expected.to_not be_valid }
+  end
+
+  describe "with a password that's too short" do
+    before { @user.password = @user.password_confirmation = 'a' * 5 }
+    it { is_expected.to be_invalid }
+  end
+
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = 'missmatch' }
+    it { is_expected.to_not be_valid }
+  end
+
+  describe 'return value of authenticate method' do
+    before { @user.save }
+    let(:found_user) { User.find_by(email: @user.email) }
+
+    describe 'with valid password' do
+      it { is_expected.to eq found_user.authenticate(@user.password) }
+    end
+
+    describe 'with invalid password' do
+      let(:user_for_invalid_password) { found_user.authenticate('invalid') }
+
+      it { is_expected.to_not eq user_for_invalid_password }
+      specify { expect(user_for_invalid_password).to be_falsey }
+    end
+  end
 end
