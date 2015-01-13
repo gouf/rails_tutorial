@@ -13,7 +13,7 @@ RSpec.describe "UserPages", type: :request do
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
 
-    it { have_content(user.name) }
-    it { have_title(user.name) }
+    it { is_expected.to have_content(user.name) }
+    it { is_expected.to have_title(user.name) }
   end
 end
