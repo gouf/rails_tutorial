@@ -28,6 +28,11 @@ RSpec.describe 'AuthenticationPages', type: :request do
         fill_in 'Password', with: user.password
         click_button 'Sign in'
       end
+
+      describe 'followed by signout' do
+        before { click_link 'Sign out' }
+        it { is_expected.to have_link('Sign in') }
+      end
     end
   end
 end
